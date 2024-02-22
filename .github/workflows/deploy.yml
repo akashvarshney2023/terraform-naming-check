@@ -1,0 +1,29 @@
+name: Validate Terraform Naming Convention
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Terraform Module Validator
+        run: npm run build && node dist/main.js
+        env:
+          REPO_READ_TOKEN: ${{ secrets.REPO_READ_TOKEN }}
+
