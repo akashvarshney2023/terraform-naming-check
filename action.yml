@@ -1,0 +1,15 @@
+name: 'naming-validator'
+description: 'Validates Terraform Naming Convention in multiple .tf files'
+inputs:
+  working-directory:
+    description: 'The working directory where .tf files are located'
+    required: true
+    default: 'infra'
+outputs:
+  conclusion:
+    description: 'The action conclusion (success, failure)'
+runs:
+  using: 'node16'
+  main: 'dist/main.js' # Adjust the path to your TypeScript output file
+
+

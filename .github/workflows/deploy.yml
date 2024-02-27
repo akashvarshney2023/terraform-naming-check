@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Terraform Module Validator
+      - name: Run Terraform Naming Validator
         run: npm run build && node dist/main.js
         env:
           REPO_READ_TOKEN: ${{ secrets.REPO_READ_TOKEN }}
